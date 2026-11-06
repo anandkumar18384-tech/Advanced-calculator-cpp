@@ -13,7 +13,7 @@ public:
 };
 void calculator::basic_operation()
 {
-    int num;
+    float num;
     int choice;
     cout << "1-addition " << endl;
     cout << "2-subtraction " << endl;
@@ -137,8 +137,8 @@ void calculator::math_function()
             {
                 cout << "GIF of [" << num << "] = " << p << endl;
             }
-            else
-            if(num==p){
+            else if (num == p)
+            {
                 cout << "GIF of [" << num << "] = " << p << endl;
             }
             else
@@ -226,8 +226,9 @@ void calculator::logritm()
     {
         cout << "log(" << num << ") = " << log(num) / log(n);
     }
-    else{
-        cout<<"Invalid "<<endl;
+    else
+    {
+        cout << "Invalid " << endl;
     }
 }
 
@@ -240,24 +241,32 @@ void calculator::advance_conversion()
     int num;
     cout << "Enter the choice " << endl;
     cin >> choice;
+    if(choice==2||choice==8){
     cout << " Enter the number " << endl;
     cin >> num;
-    if(num>0){
-    int p = num;
-    int ans = 0;
-    int pow = 1;
-    while (num > 0)
+    if (num > 0)
     {
-        int r = num % choice;
-        ans = ans + pow * r;
-        pow *= 10;
-        num /= choice;
+        int p = num;
+        int ans = 0;
+        int pow = 1;
+        while (num > 0)
+        {
+            int r = num % choice;
+            ans = ans + pow * r;
+            pow *= 10;
+            num /= choice;
+        }
+        cout << "(" << p << ")10" << " = (" << ans << ")" << choice << endl;
+        
+        }
+        else{
+            cout<<" invalid "<<endl;
+        }
     }
-    cout << "(" << p << ")10" << " = (" << ans << ")" << choice << endl;
-}
-else{
-    cout<<"invalid"<<endl;
-}
+    else
+    {
+        cout << "invalid choice" << endl;
+    }
 }
 
 int main()
